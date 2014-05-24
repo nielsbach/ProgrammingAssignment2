@@ -3,7 +3,8 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   ## This function creates a special "matrix" object that can cache its inverse.
-  ## The function is called with a regular r matrix as a parameter.
+  ## makeCacheMatrix(x) : special "matrix" object (a list of functions)
+  ## x                  : a regular matrix.
   s <- NULL
   set <- function(y) {
     x <<- y
@@ -25,9 +26,10 @@ makeCacheMatrix <- function(x = matrix()) {
        getsolve = getsolve)
 }
 
-## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
 cacheSolve <- function(x, ...) {
-  ## Return a matrix that is the inverse of 'x', where x is the object returned by makeCacheMatrix()
+  ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
+  ## cacheSolve(x): inverse of x, 
+  ## x:             object returned by makeCacheMatrix()
   ## 
   ## This function assumes that the matrix is invertible
   ##
